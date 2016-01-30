@@ -232,7 +232,7 @@
 -(void) writeStringToFile:(NSString *)str{
     
     //文件不存在会自动创建，文件夹不存在则不会自动创建会报错
-    NSString *path = @"/Users/zhiwei/Desktop/studentCode.txt";
+    NSString *path = @"~/Desktop/studentCode.txt";
     NSError *error;
     [str writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&error];
     if (error) {
