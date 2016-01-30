@@ -232,7 +232,9 @@
 -(void) writeStringToFile:(NSString *)str{
     
     //文件不存在会自动创建，文件夹不存在则不会自动创建会报错
-    NSString *path = @"~/Desktop/studentCode.txt";
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES).firstObject;
+    path = [path stringByAppendingString:@"/studentCode.txt"];
+    NSLog(@"path = %@",path);
     NSError *error;
     [str writeToFile:path atomically:YES encoding:NSUTF8StringEncoding error:&error];
     if (error) {
@@ -246,7 +248,10 @@
 - (IBAction)seeResult:(NSButton *)sender {
     
     NSTask *task = [NSTask new];
-    task.currentDirectoryPath = @"~/Desktop/";
+    
+    NSString *path = NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES).firstObject;
+    
+    task.currentDirectoryPath = path;
     [task setLaunchPath:@"/usr/bin/open"];
     [task setArguments:@[@"studentCode.txt"]];
     [task launch];
