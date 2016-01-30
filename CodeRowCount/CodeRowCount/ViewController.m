@@ -231,7 +231,7 @@
 #pragma mark - 将字符串写到文件
 -(void) writeStringToFile:(NSString *)str{
     
-    //文件不存在会自动创建，文件夹不存在则不会自动创建会报错
+    
     NSString *path = NSSearchPathForDirectoriesInDomains(NSDesktopDirectory, NSUserDomainMask, YES).firstObject;
     path = [path stringByAppendingString:@"/studentCode.txt"];
     NSLog(@"path = %@",path);
